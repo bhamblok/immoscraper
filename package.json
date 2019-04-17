@@ -1,0 +1,26 @@
+{
+  "name": "immoscraper",
+  "version": "1.0.0",
+  "description": "Scraper for immo websites",
+  "main": "app.js",
+  "scripts": {
+    "start": "node -r esm app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bhamblok/immoscraper.git"
+  },
+  "author": "@bhamblok",
+  "devDependencies": {
+    "babel-eslint": "^10.0.1",
+    "eslint": "^5.16.0",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-import": "^2.16.0",
+    "esm": "^3.2.22"
+  },
+  "dependencies": {
+    "jsdom": "^14.0.0",
+    "node-fetch": "^2.3.0",
+    "node-slack-notify": "^0.1.0"
+  }
+}
