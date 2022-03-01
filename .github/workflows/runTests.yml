@@ -1,7 +1,9 @@
 name: Run Tests
-# on:
+on:
 #   schedule:
 #     - cron:  '10 * * * *'
+  push:
+    branches: [ master ]
 jobs:
   run-tests:
     runs-on: ubuntu-latest
