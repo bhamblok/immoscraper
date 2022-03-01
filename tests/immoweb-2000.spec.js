@@ -38,7 +38,7 @@ test('immo test', async ({ page }) => {
     })));
     return data;
   }, Promise.resolve([]));
-  console.log(content);
+
   const newImmo = await isNewImmo(title, content);
 
   expect(newImmo.length).toBe(0);
