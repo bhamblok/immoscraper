@@ -6,6 +6,7 @@ export default async ({ page, url, getTitle, selectList, elementHandler }) => {
     getTitle(page),
     selectList(page).elementHandles(),
   ]);
+  console.log('');
   console.log(`Testing: ${title}...`);
   const content = await elementHandles.reduce(async (resolvePrevious, elementHandle) => {
     const data = await resolvePrevious;
@@ -14,7 +15,6 @@ export default async ({ page, url, getTitle, selectList, elementHandler }) => {
     data.push(await elementHandler(elementHandle));
     return data;
   }, Promise.resolve([]));
-
   const newImmo = await isNewImmo(title, content);
 
   if (newImmo.length) {
