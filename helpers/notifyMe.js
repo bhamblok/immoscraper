@@ -1,7 +1,10 @@
+import 'dotenv/config'; // eslint-disable-line import/no-extraneous-dependencies
 import { notify } from 'node-slack-notify';
 
+const { SLACK_WEBHOOK_URL } = process.env;
+
 export default msg => notify({
-  webhookUrl: 'https://hooks.slack.com/services/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',
+  webhookUrl: SLACK_WEBHOOK_URL,
   data: {
     username: 'Immoscraper',
     icon_emoji: ':house_with_garden:',
