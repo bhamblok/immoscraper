@@ -6,7 +6,6 @@ const { MIN_PRICE, MAX_PRICE, MIN_SURFACE } = process.env;
 
 // https://immo.vlan.be/nl/vastgoed?transactiontypes=te-koop,in-openbare-verkoop&towns=2600-berchem&propertytypes=huis&minlivablesurface=170&minprice=400000&maxprice=750000&noindex=1
 
-
 test('immo test', async ({ page }) => {
   const newImmo = await scrape({
     page,
