@@ -6,7 +6,6 @@ const { MIN_PRICE, MAX_PRICE, MIN_SURFACE } = process.env;
 
 // https://www.immoweb.be/nl/zoeken/huis/te-koop/Antwerpen/2000?countries=BE&maxPrice=750000&minPrice=350000&minSurface=170&page=1&orderBy=newest
 
-
 test('immo test', async ({ page }) => {
   const newImmo = await scrape({
     page,
