@@ -10,7 +10,7 @@ test('immo test', async ({ page }) => {
   const newImmo = await scrape({
     page,
     url: `https://immo.vlan.be/nl/vastgoed?transactiontypes=te-koop,in-openbare-verkoop&towns=2018-antwerpen&propertytypes=huis&minlivablesurface=${MIN_SURFACE}&minprice=${MIN_PRICE}&maxprice=${MAX_PRICE}&noindex=1`,
-    getTitle: p => p.locator('html > head > title').evaluate(el => el.innerText),
+    title: 'Immovlan | 2018 Antwerpen',
     selectList: p => p.locator('article.list-view-item'),
     elementHandler: async e => e.evaluate(element => ({
       id: element.id,

@@ -8,7 +8,7 @@ test('immo test', async ({ page }) => {
   const newImmo = await scrape({
     page,
     url: 'https://www.deboerenpartners.be/te-koop/huis/2600%7Cantwerpen/alle-prijzen?term=&status=te+koop&bedrooms=&view=list&sort=null',
-    getTitle: p => p.locator('html > head > title').evaluate(el => el.innerText),
+    title: 'De Boer en Partners | 2600 Berchem',
     selectList: p => p.locator('.estates > .row'),
     elementHandler: async e => e.evaluate(element => ({
       id: element.id,
