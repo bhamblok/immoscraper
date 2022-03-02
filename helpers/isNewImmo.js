@@ -5,6 +5,9 @@ const data = JSON.parse(fs.readFileSync('./data/immoscraper.json', 'utf8'));
 
 export default async (title, content) => {
   const newImmo = content.filter((immo) => {
+    if (!immo.link) {
+      return false;
+    }
     if (!data.includes(immo.link)) {
       data.push(immo.link);
       fs.writeFileSync('./data/immoscraper.json', JSON.stringify(data, null, 2), 'utf8');

@@ -12,7 +12,8 @@ test('immo test', async ({ page }) => {
     selectList: p => p.locator('.estates > .row'),
     elementHandler: async e => e.evaluate(element => ({
       id: element.id,
-      link: element.querySelector('.pand-image > a')?.href?.split('?')[0],
+      link: element.querySelector('.pand-omschrijving > a')?.href?.split('?')[0]
+        || element.querySelector('.pand-image > a')?.href?.split('?')[0],
       title: element.querySelector('.pand-omschrijving h2').innerText,
       price: element.querySelector('.pand-info h2').innerText,
       info: element.querySelector('.pand-omschrijving p')?.innerText,
