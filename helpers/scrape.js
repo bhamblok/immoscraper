@@ -1,13 +1,8 @@
 import isNewImmo from './isNewImmo.js';
 
-export default async ({ page, url, getTitle, selectList, elementHandler }) => {
+export default async ({ page, url, title, selectList, elementHandler }) => {
   await page.goto(url);
-  const [title, elementHandles] = await Promise.all([
-    getTitle(page),
-    selectList(page).elementHandles(),
-  ]);
-  console.log('');
-  console.log(`Testing: ${title}...`);
+  const elementHandles = await selectList(page).elementHandles();
   const content = await elementHandles.reduce(async (resolvePrevious, elementHandle) => {
     const data = await resolvePrevious;
     await elementHandle.scrollIntoViewIfNeeded();
@@ -16,10 +11,5 @@ export default async ({ page, url, getTitle, selectList, elementHandler }) => {
     return data;
   }, Promise.resolve([]));
   const newImmo = await isNewImmo(title, content);
-
-  if (newImmo.length) {
-    console.log(newImmo.map(immo => immo.link));
-  }
-
   return newImmo;
 };

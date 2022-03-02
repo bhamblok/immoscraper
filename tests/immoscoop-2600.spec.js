@@ -10,7 +10,7 @@ test('immo test', async ({ page }) => {
   const newImmo = await scrape({
     page,
     url: `https://www.immoscoop.be/zoeken/te-koop/2600-berchem/all/woonhuis?minPrice=${MIN_PRICE}&maxPrice=${MAX_PRICE}&sort=date%2CDESC`,
-    getTitle: p => p.locator('html > head > title').evaluate(el => el.innerText),
+    title: 'Immoscoop | 2600 Berchem',
     selectList: p => p.locator('[data-component="property-card"]'),
     elementHandler: async e => e.evaluate(element => ({
       id: element.getAttribute('data-property-id'),

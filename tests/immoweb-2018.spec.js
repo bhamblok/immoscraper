@@ -10,7 +10,7 @@ test('immo test', async ({ page }) => {
   const newImmo = await scrape({
     page,
     url: `https://www.immoweb.be/nl/zoeken/huis/te-koop/Antwerpen/2018?countries=BE&minPrice=${MIN_PRICE}&maxPrice=${MAX_PRICE}&minSurface=${MIN_SURFACE}&page=1&orderBy=newest`,
-    getTitle: p => p.locator('html > head > title').evaluate(el => el.innerText),
+    title: 'Immoweb | 2018 Antwerpen',
     selectList: p => p.locator('.card--result'),
     elementHandler: async e => e.evaluate((element) => {
       const removeScreenReader = (sr) => {
