@@ -2,7 +2,7 @@ name: Run Tests
 on:
   schedule:
     # - cron:  '*/15 * * * *'
-    - cron:  '*/15 06-23 * * *'
+    - cron:  '*/30 06-23 * * *'
   push:
     branches: [ master ]
 jobs:
