@@ -29,7 +29,7 @@ export default async (title, content) => {
           },
         });
         resolve();
-      }, 500);
+      }, 250);
     });
   }, Promise.resolve());
 

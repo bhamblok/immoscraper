@@ -6,7 +6,7 @@ export default async ({ page, url, title, selectList, elementHandler }) => {
   const content = await elementHandles.reduce(async (resolvePrevious, elementHandle) => {
     const data = await resolvePrevious;
     await elementHandle.scrollIntoViewIfNeeded();
-    await new Promise(res => setTimeout(res, 250));
+    await new Promise(res => setTimeout(res, 150));
     data.push(await elementHandler(elementHandle));
     return data;
   }, Promise.resolve([]));
