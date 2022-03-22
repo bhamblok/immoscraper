@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node -r esm app.js",
     "_test": "playwright test --headed --workers=1",
-    "test": "playwright test --headed"
+    "test": "npx playwright install-deps chromium && playwright test --headed"
   },
   "repository": {
     "type": "git",
@@ -21,12 +21,6 @@
     "eslint": "^5.16.0",
     "eslint-config-airbnb-base": "^13.1.0",
     "eslint-plugin-import": "^2.16.0",
-    "esm": "^3.2.22",
-    "playwright": "^1.18.1"
-  },
-  "dependencies": {
-    "jsdom": "^14.0.0",
-    "node-fetch": "^2.3.0",
     "node-slack-notify": "^0.1.0"
   }
 }
