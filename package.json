@@ -4,8 +4,6 @@
   "description": "Scraper for immo websites",
   "main": "app.js",
   "scripts": {
-    "start": "node -r esm app.js",
-    "_test": "playwright test --headed --workers=1",
     "test": "npx playwright install-deps chromium && playwright test --headed"
   },
   "repository": {
