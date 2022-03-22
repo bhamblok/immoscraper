@@ -4,7 +4,7 @@
   "description": "Scraper for immo websites",
   "main": "app.js",
   "scripts": {
-    "test": "npx playwright install-deps chromium && playwright test --headed"
+    "test": "npx playwright install-deps chromium && sleep 10 && playwright test --headed"
   },
   "repository": {
     "type": "git",
