@@ -13,7 +13,7 @@ test(title, async ({ page }) => {
     title,
     selectList: p => p.locator('.node-property'),
     elementHandler: async e => e.evaluate(element => ({
-      id: element.id,
+      id: element.querySelector('.property-id-holder').getAttribute('data-property-id'),
       link: element.querySelector('.field-name-node-link a').href?.split('?')[0],
       title: element.querySelector('.field-name-title-field').innerText,
       price: element.querySelector('.field-name-era-actuele-vraagprijs--c').innerText,
