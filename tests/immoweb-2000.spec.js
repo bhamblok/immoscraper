@@ -3,14 +3,14 @@ import { test, expect } from '@playwright/test';
 import scrape from '../helpers/scrape.js';
 
 const { MIN_PRICE, MAX_PRICE, MIN_SURFACE } = process.env;
+const url = `https://www.immoweb.be/nl/zoeken/huis/te-koop/Antwerpen/2000?countries=BE&minPrice=${MIN_PRICE}&maxPrice=${MAX_PRICE}&minSurface=${MIN_SURFACE}&page=1&orderBy=newest`;
+const title = 'Immoweb | 2000 Antwerpen';
 
-// https://www.immoweb.be/nl/zoeken/huis/te-koop/Antwerpen/2000?countries=BE&maxPrice=750000&minPrice=350000&minSurface=170&page=1&orderBy=newest
-
-test('immo test', async ({ page }) => {
+test(title, async ({ page }) => {
   const newImmo = await scrape({
     page,
-    url: `https://www.immoweb.be/nl/zoeken/huis/te-koop/Antwerpen/2000?countries=BE&minPrice=${MIN_PRICE}&maxPrice=${MAX_PRICE}&minSurface=${MIN_SURFACE}&page=1&orderBy=newest`,
-    title: 'Immoweb | 2000 Antwerpen',
+    url,
+    title,
     selectList: p => p.locator('.card--result'),
     elementHandler: async e => e.evaluate((element) => {
       const removeScreenReader = (sr) => {
