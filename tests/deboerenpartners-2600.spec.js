@@ -2,13 +2,14 @@ import 'dotenv/config';
 import { test, expect } from '@playwright/test';
 import scrape from '../helpers/scrape.js';
 
-// https://www.deboerenpartners.be/te-koop/huis/2600%7Cantwerpen/alle-prijzen?term=&status=te+koop&bedrooms=&view=list&sort=null
+const title = 'De Boer en Partners | 2600 Berchem';
+const url = 'https://www.deboerenpartners.be/te-koop/huis/2600%7Cantwerpen/alle-prijzen?term=&status=te+koop&bedrooms=&view=list&sort=null';
 
-test('immo test', async ({ page }) => {
+test(title, async ({ page }) => {
   const newImmo = await scrape({
     page,
-    url: 'https://www.deboerenpartners.be/te-koop/huis/2600%7Cantwerpen/alle-prijzen?term=&status=te+koop&bedrooms=&view=list&sort=null',
-    title: 'De Boer en Partners | 2600 Berchem',
+    url,
+    title,
     selectList: p => p.locator('.estates > .row'),
     elementHandler: async e => e.evaluate(element => ({
       id: element.id,

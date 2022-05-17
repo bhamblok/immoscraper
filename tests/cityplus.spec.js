@@ -2,13 +2,14 @@ import 'dotenv/config';
 import { test, expect } from '@playwright/test';
 import scrape from '../helpers/scrape.js';
 
-// https://www.cityplus.be/koop
+const title = 'CITYPLUS';
+const url = 'https://www.cityplus.be/koop';
 
-test('immo test', async ({ page }) => {
+test(title, async ({ page }) => {
   const newImmo = await scrape({
     page,
-    url: 'https://www.cityplus.be/koop',
-    title: 'CITYPLUS',
+    url,
+    title,
     selectList: p => p.locator('[data-testid="gallery-item-item"]'),
     elementHandler: async e => e.evaluate(element => ({
       id: element.querySelector('[data-testid="gallery-item-click-action-link"]')?.href,
