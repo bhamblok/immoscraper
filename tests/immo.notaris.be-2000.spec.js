@@ -21,5 +21,5 @@ test(title, async ({ page }) => {
     })),
   });
 
-  expect(newImmo.length).toBe(0);
+  expect(newImmo?.length).toBe(0);
 });
