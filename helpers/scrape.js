@@ -13,6 +13,9 @@ export default async ({ page, url, title, selectList, elementHandler }) => {
       return data;
     }, Promise.resolve([]));
     const newImmo = await isNewImmo(title, content);
+    const panden = content?.length === 1 ? 'pand' : 'panden';
+    const nieuwe = newImmo?.length === 1 ? 'nieuw' : 'nieuwe';
+    console.log(`${content?.length} ${panden} gevonden, waarvan ${newImmo?.length} ${nieuwe}, voor ${title}`);
     return newImmo;
   } catch (e) {
     console.log(e);
