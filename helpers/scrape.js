@@ -4,7 +4,7 @@ import isNewImmo from './isNewImmo.js';
 export default async ({ page, url, title, selectList, elementHandler }) => {
   try {
     await page.goto(url);
-    await new Promise(resolve => setTimeout(resolve, 500));
+    await new Promise(resolve => setTimeout(resolve, 1000));
     const elementHandles = await selectList(page).elementHandles();
     const content = await elementHandles.reduce(async (resolvePrevious, elementHandle) => {
       const data = await resolvePrevious;
@@ -23,5 +23,6 @@ export default async ({ page, url, title, selectList, elementHandler }) => {
   } catch (e) {
     console.log(e); // eslint-disable-line no-console
     // return notifyMe({ text: e.message });
+    return [];
   }
 };
