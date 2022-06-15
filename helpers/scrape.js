@@ -1,5 +1,5 @@
 import isNewImmo from './isNewImmo.js';
-import notifyMe from './notifyMe.js';
+// import notifyMe from './notifyMe.js';
 
 export default async ({ page, url, title, selectList, elementHandler }) => {
   try {
@@ -18,10 +18,10 @@ export default async ({ page, url, title, selectList, elementHandler }) => {
     const nieuwe = newImmo?.length === 1 ? 'nieuw' : 'nieuwe';
     const message = `${content?.length} ${panden} gevonden, waarvan ${newImmo?.length} ${nieuwe}, voor ${title}`;
     console.log(message); // eslint-disable-line no-console
-    notifyMe({ text: message });
+    // notifyMe({ text: message });
     return newImmo;
   } catch (e) {
     console.log(e); // eslint-disable-line no-console
-    return notifyMe({ text: e.message });
+    // return notifyMe({ text: e.message });
   }
 };
