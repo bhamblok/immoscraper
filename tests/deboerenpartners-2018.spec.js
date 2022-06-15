@@ -15,8 +15,8 @@ test(title, async ({ page }) => {
       id: element.id,
       link: element.querySelector('.pand-omschrijving > a')?.href?.split('?')[0]
         || element.querySelector('.pand-image > a')?.href?.split('?')[0],
-      title: element.querySelector('.pand-omschrijving h2').innerText,
-      price: element.querySelector('.pand-info h2').innerText,
+      title: element.querySelector('.pand-omschrijving h2')?.innerText,
+      price: element.querySelector('.pand-info h2')?.innerText,
       info: element.querySelector('.pand-omschrijving p')?.innerText,
       image_url: element.querySelector('.pand-image-container img')?.src,
     })),

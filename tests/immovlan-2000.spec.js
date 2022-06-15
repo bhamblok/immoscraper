@@ -14,9 +14,9 @@ test(title, async ({ page }) => {
     selectList: p => p.locator('article.list-view-item'),
     elementHandler: async e => e.evaluate(element => ({
       id: element.id,
-      link: element.querySelector('.card-title a').href?.split('?')[0],
-      title: element.querySelector('.card-title').innerText,
-      price: element.querySelector('.list-item-price').innerText,
+      link: element.querySelector('.card-title a')?.href?.split('?')[0],
+      title: element.querySelector('.card-title')?.innerText,
+      price: element.querySelector('.list-item-price')?.innerText,
       info: element.querySelector('.list-item-description')?.innerText,
       image_url: element.querySelector('.card-image img')?.src?.replace('-webp', ''),
     })),

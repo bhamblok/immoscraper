@@ -19,9 +19,9 @@ test(title, async ({ page }) => {
       };
       return {
         id: element.id,
-        link: element.querySelector('.card__title a').href?.split('?')[0],
-        title: element.querySelector('.card__title').innerText,
-        price: removeScreenReader(element.querySelector('.card--result__price')).innerText,
+        link: element.querySelector('.card__title a')?.href?.split('?')[0],
+        title: element.querySelector('.card__title')?.innerText,
+        price: removeScreenReader(element.querySelector('.card--result__price'))?.innerText,
         info: removeScreenReader(element.querySelector('.card__information--property'))?.innerText,
         image_url: element.querySelector('.card__media-picture')?.src,
       };
