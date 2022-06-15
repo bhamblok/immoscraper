@@ -4,6 +4,7 @@ import notifyMe from './notifyMe.js';
 export default async ({ page, url, title, selectList, elementHandler }) => {
   try {
     await page.goto(url);
+    await new Promise(resolve => setTimeout(resolve, 500));
     const elementHandles = await selectList(page).elementHandles();
     const content = await elementHandles.reduce(async (resolvePrevious, elementHandle) => {
       const data = await resolvePrevious;
