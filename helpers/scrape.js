@@ -15,7 +15,9 @@ export default async ({ page, url, title, selectList, elementHandler }) => {
     const newImmo = await isNewImmo(title, content);
     const panden = content?.length === 1 ? 'pand' : 'panden';
     const nieuwe = newImmo?.length === 1 ? 'nieuw' : 'nieuwe';
-    console.log(`${content?.length} ${panden} gevonden, waarvan ${newImmo?.length} ${nieuwe}, voor ${title}`); // eslint-disable-line no-console
+    const message = `${content?.length} ${panden} gevonden, waarvan ${newImmo?.length} ${nieuwe}, voor ${title}`;
+    console.log(message); // eslint-disable-line no-console
+    notifyMe({ text: message });
     return newImmo;
   } catch (e) {
     console.log(e); // eslint-disable-line no-console
