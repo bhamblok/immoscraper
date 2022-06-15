@@ -14,11 +14,11 @@ test(title, async ({ page }) => {
     selectList: p => p.locator('[data-component="property-card"]'),
     elementHandler: async e => e.evaluate(element => ({
       id: element.getAttribute('data-property-id'),
-      link: element.querySelector('[data-component="property-card__title"] a').href?.split('?')[0],
-      title: element.querySelector('[data-component="property-card__title"]').innerText,
-      price: element.querySelector('[data-component="property-card__price"]').innerText,
-      info: element.querySelector('[data-component="property-card__address"]')?.innerText,
-      image_url: element.querySelector('[data-component="property-card__image"]')?.src,
+      link: element.querySelector('[data-component~="property-card__title"] a')?.href?.split('?')[0],
+      title: element.querySelector('[data-component~="property-card__title"]')?.innerText,
+      price: element.querySelector('[data-component~="property-card__price"]')?.innerText,
+      info: element.querySelector('[data-component~="property-card__address"]')?.innerText,
+      image_url: element.querySelector('[data-component~="property-card__image"]')?.src,
     })),
   });
 

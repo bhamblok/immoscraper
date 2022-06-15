@@ -14,9 +14,9 @@ test(title, async ({ page }) => {
     selectList: p => p.locator('.property-item'),
     elementHandler: async e => e.evaluate(element => ({
       id: element.id,
-      link: element.querySelector('.property-item_link').href?.split('?')[0],
-      title: element.querySelector('.property-item_title').innerText,
-      price: element.querySelector('.property-item_price').innerText,
+      link: element.querySelector('.property-item_link')?.href?.split('?')[0],
+      title: element.querySelector('.property-item_title')?.innerText,
+      price: element.querySelector('.property-item_price')?.innerText,
       info: element.querySelector('.property-item_address')?.innerText,
       image_url: element.querySelector('.property-thumb')?.src,
     })),
