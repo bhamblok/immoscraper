@@ -15,10 +15,10 @@ export default async ({ page, url, title, selectList, elementHandler }) => {
     const newImmo = await isNewImmo(title, content);
     const panden = content?.length === 1 ? 'pand' : 'panden';
     const nieuwe = newImmo?.length === 1 ? 'nieuw' : 'nieuwe';
-    console.log(`${content?.length} ${panden} gevonden, waarvan ${newImmo?.length} ${nieuwe}, voor ${title}`);
+    console.log(`${content?.length} ${panden} gevonden, waarvan ${newImmo?.length} ${nieuwe}, voor ${title}`); // eslint-disable-line no-console
     return newImmo;
   } catch (e) {
-    console.log(e);
-    notifyMe({ text: e.message });
+    console.log(e); // eslint-disable-line no-console
+    return notifyMe({ text: e.message });
   }
 };
