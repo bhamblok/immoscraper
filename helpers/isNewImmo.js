@@ -8,12 +8,12 @@ export default async (title, content) => {
     if (!immo.link) {
       return false;
     }
-    if (!data.includes(immo.link)) {
-      data.push(immo.link);
-      fs.writeFileSync('./data/immoscraper.json', JSON.stringify(data, null, 2), 'utf8');
-      return true;
+    if (data.includes(immo.link)) {
+      return false;
     }
-    return false;
+    data.push(immo.link);
+    fs.writeFileSync('./data/immoscraper.json', JSON.stringify(data, null, 2), 'utf8');
+    return true;
   });
   await newImmo.reduce(async (prev, immo) => {
     await prev;

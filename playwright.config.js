@@ -65,7 +65,7 @@ export default {
         headless: false,
         userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 12_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.0.0 Safari/537.36',
         browserName: 'chromium',
-        viewport: { width: 1720, height: 1280 },
+        viewport: { width: 920, height: 1280 },
         launchOptions: {
           userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 12_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.0.0 Safari/537.36',
           args: [
