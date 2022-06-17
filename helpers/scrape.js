@@ -13,14 +13,14 @@ export default async ({ page, url, title, selectList, elementHandler }) => {
       return data;
     }, Promise.resolve([]));
     const newImmo = await isNewImmo(title, content);
-    // const l = content?.length || 0;
-    // const p = l === 1 ? 'pand' : 'panden';
-    // const n = newImmo?.length === 1 ? 'nieuw' : 'nieuwe';
-    // const message = `${l} ${p} gevonden, waarvan ${newImmo?.length} ${n}, voor ${title}`;
-    // console.log(message); // eslint-disable-line no-console
+    const l = content?.length || 0;
+    const p = l === 1 ? 'pand' : 'panden';
+    const n = newImmo?.length === 1 ? 'nieuw' : 'nieuwe';
+    const message = `${l} ${p} gevonden, waarvan ${newImmo?.length} ${n}, voor ${title}`;
+    console.log(message); // eslint-disable-line no-console
     return newImmo;
   } catch (e) {
     console.log(e); // eslint-disable-line no-console
-    return [e];
+    return ['1'];
   }
 };
