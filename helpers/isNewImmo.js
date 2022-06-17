@@ -19,6 +19,7 @@ export default async (title, content) => {
     await prev;
     return new Promise((resolve) => {
       setTimeout(() => {
+        console.log('notify:', immo.link);
         notifyMe({
           text: title,
           attachment: {
