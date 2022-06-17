@@ -2,6 +2,7 @@ import fs from 'fs';
 import notifyMe from './notifyMe.js';
 
 const data = JSON.parse(fs.readFileSync('./data/immoscraper.json', 'utf8'));
+console.log(data);
 
 export default async (title, content) => {
   const newImmo = content.filter((immo) => {
@@ -12,7 +13,12 @@ export default async (title, content) => {
       return false;
     }
     data.push(immo.link);
-    fs.writeFileSync('./data/immoscraper.json', JSON.stringify(data, null, 2), 'utf8');
+    try {
+      fs.writeFileSync('./data/immoscraper.json', JSON.stringify(data, null, 2), 'utf8');
+    } catch (err) {
+      console.error('!!! ERROR WRITEFILESYNC');
+      console.error(err);
+    }
     return true;
   });
   await newImmo.reduce(async (prev, immo) => {
