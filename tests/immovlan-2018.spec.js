@@ -21,7 +21,5 @@ test(title, async ({ page }) => {
       image_url: element.querySelector('.card-image img')?.src?.replace('-webp', ''),
     })),
   });
-  console.log(newImmo?.length);
-  console.log(newImmo);
   expect(newImmo?.length).toBe(0);
 });
