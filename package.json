@@ -5,8 +5,8 @@
   "main": "app.js",
   "scripts": {
     "start": "node -r esm app.js",
-    "test": "playwright test --workers=1",
-    "_test": "playwright test"
+    "_test": "playwright test --workers=1",
+    "test": "playwright test"
   },
   "repository": {
     "type": "git",
