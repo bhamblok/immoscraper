@@ -7,7 +7,7 @@ export default async (title, content) => {
   try {
     data = JSON.parse(fs.readFileSync(`./data/immoscraper-${title}.json`, 'utf8') || '[]');
   } catch (err) {
-    console.log(err);
+    /* silently ignore err */
   }
   const newImmo = content.filter((immo) => {
     if (!immo.link) {
@@ -20,8 +20,7 @@ export default async (title, content) => {
     try {
       fs.writeFileSync(`./data/immoscraper-${title}.json`, JSON.stringify(data, null, 2), 'utf8');
     } catch (err) {
-      console.error('!!! ERROR WRITEFILESYNC');
-      console.error(err);
+      /* silently ignore err */
     }
     return true;
   });
