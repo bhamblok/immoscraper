@@ -9,7 +9,6 @@ export default async (title, content) => {
   } catch (err) {
     console.log(err);
   }
-  console.log(data.length);
   const newImmo = content.filter((immo) => {
     if (!immo.link) {
       return false;
