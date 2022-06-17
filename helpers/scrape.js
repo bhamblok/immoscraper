@@ -21,6 +21,6 @@ export default async ({ page, url, title, selectList, elementHandler }) => {
     return newImmo;
   } catch (e) {
     console.log(e); // eslint-disable-line no-console
-    return [];
+    return [e];
   }
 };
