@@ -1,10 +1,15 @@
 import fs from 'fs';
 import notifyMe from './notifyMe.js';
 
-const data = JSON.parse(fs.readFileSync('./data/immoscraper.json', 'utf8'));
-console.log(data);
 
 export default async (title, content) => {
+  let data = [];
+  try {
+    data = JSON.parse(fs.readFileSync(`./data/immoscraper-${title}.json`, 'utf8') || '[]');
+  } catch (err) {
+    console.log(err);
+  }
+  console.log(data.length);
   const newImmo = content.filter((immo) => {
     if (!immo.link) {
       return false;
@@ -14,7 +19,7 @@ export default async (title, content) => {
     }
     data.push(immo.link);
     try {
-      fs.writeFileSync('./data/immoscraper.json', JSON.stringify(data, null, 2), 'utf8');
+      fs.writeFileSync(`./data/immoscraper-${title}.json`, JSON.stringify(data, null, 2), 'utf8');
     } catch (err) {
       console.error('!!! ERROR WRITEFILESYNC');
       console.error(err);
