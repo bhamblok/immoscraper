@@ -6,7 +6,7 @@ const { MIN_PRICE, MAX_PRICE } = process.env;
 const title = 'QUARES';
 const url = `https://immo.quares.be/nl/te-koop?category%5B%5D=8&zip%5B%5D=2000&zip%5B%5D=2018&zip%5B%5D=2600&minPrice=${MIN_PRICE}&maxPrice=${MAX_PRICE}&bedrooms=&neighbourhood=&reference=&keyword=`;
 
-test.only(title, async ({ page }) => {
+test(title, async ({ page }) => {
   const newImmo = await scrape({
     page,
     url,
