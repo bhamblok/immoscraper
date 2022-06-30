@@ -2,8 +2,8 @@ import 'dotenv/config';
 import { test, expect } from '@playwright/test';
 import scrape from '../helpers/scrape.js';
 
-const title = 'De Boer en Partners | 2018 Antwerpen';
-const url = 'https://www.deboerenpartners.be/te-koop/huis/2018%7Cantwerpen/alle-prijzen?term=&status=te+koop&bedrooms=&view=list&sort=null';
+const title = 'De Boer en Partners';
+const url = 'https://www.deboerenpartners.be/te-koop/huis/2000%7Cantwerpen+2018%7Cantwerpen+2600%7Cantwerpen%20berchem/250000-500000+500000-750000?term=&status=te+koop&bedrooms=&view=list&sort=null';
 
 test(title, async ({ page }) => {
   const newImmo = await scrape({

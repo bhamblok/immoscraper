@@ -2,9 +2,9 @@ import 'dotenv/config';
 import { test, expect } from '@playwright/test';
 import scrape from '../helpers/scrape.js';
 
-const { MIN_PRICE, MAX_PRICE, MIN_SURFACE } = process.env;
-const url = `https://immo.vlan.be/nl/vastgoed?transactiontypes=te-koop,in-openbare-verkoop&towns=2000-antwerpen&propertytypes=huis&minlivablesurface=${MIN_SURFACE}&minprice=${MIN_PRICE}&maxprice=${MAX_PRICE}&noindex=1`;
-const title = 'Immovlan | 2000 Antwerpen';
+const { MIN_PRICE, MAX_PRICE } = process.env;
+const url = `https://immo.vlan.be/nl/vastgoed?transactiontypes=te-koop,in-openbare-verkoop&towns=2000-antwerpen,2018-antwerpen,2600-berchem&propertytypes=huis&minprice=${MIN_PRICE}&maxprice=${MAX_PRICE}&noindex=1`;
+const title = 'Immovlan';
 
 test(title, async ({ page }) => {
   const newImmo = await scrape({

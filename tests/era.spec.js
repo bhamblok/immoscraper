@@ -3,8 +3,8 @@ import { test, expect } from '@playwright/test';
 import scrape from '../helpers/scrape.js';
 
 const { MIN_PRICE, MAX_PRICE, MIN_SURFACE } = process.env;
-const url = `https://www.era.be/nl/te-koop/antwerpen/huis?price=${MIN_PRICE}+${MAX_PRICE}&bewoonb_opp=${MIN_SURFACE}+350`;
-const title = 'ERA | 2000 Antwerpern';
+const title = 'ERA';
+const url = `https://www.era.be/nl/te-koop/antwerpen/huis?towns=antwerpen-2018+berchem+antwerpen&price=${MIN_PRICE}+${MAX_PRICE}&bewoonb_opp=${MIN_SURFACE}+400`;
 
 test(title, async ({ page }) => {
   const newImmo = await scrape({
