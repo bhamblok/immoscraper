@@ -5,7 +5,7 @@ import scrape from '../helpers/scrape.js';
 const title = 'UGLY';
 const url = 'https://ugly.be/aanbod/?_sfm_pand_filterwaarde=te%20koop&sort_order=_sfm_pand_gemeente+asc+alpha';
 
-test.only(title, async ({ page }) => {
+test(title, async ({ page }) => {
   const newImmo = await scrape({
     page,
     url,
