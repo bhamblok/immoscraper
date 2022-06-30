@@ -2,9 +2,8 @@ import 'dotenv/config';
 import { test, expect } from '@playwright/test';
 import scrape from '../helpers/scrape.js';
 
-const { MIN_PRICE, MAX_PRICE, MIN_SURFACE } = process.env;
-const url = `https://www.zimmo.be/nl/panden/?status=1&type%5B0%5D=5&hash=a4d2c3f21f946f46da9e1403424cf48b&priceMin=${MIN_PRICE}&priceMax=${MAX_PRICE}&priceIncludeUnknown=1&priceChangedOnly=0&bedroomsIncludeUnknown=1&bathroomsIncludeUnknown=1&constructionIncludeUnknown=1&livingAreaMin=${MIN_SURFACE}&livingAreaIncludeUnknown=1&landAreaIncludeUnknown=1&commercialAreaIncludeUnknown=1&yearOfConstructionIncludeUnknown=1&epcIncludeUnknown=1&queryCondition=and&includeNoPhotos=1&includeNoAddress=1&onlyRecent=0&onlyRecentlyUpdated=0&isPlus=0&region=list&city=MzAYBQMHDAE%253D&sort=recent&sort_order=desc#gallery`;
-const title = 'Zimmo | 2018 Antwerpen';
+const title = 'Zimmo';
+const url = 'https://www.zimmo.be/nl/zoeken/?search=eyJmaWx0ZXIiOnsic3RhdHVzIjp7ImluIjpbIkZPUl9TQUxFIl19LCJwbGFjZUlkIjp7ImluIjpbMzI3MCwzMjcxLDYwMl19LCJjYXRlZ29yeSI6eyJpbiI6WyJIT1VTRSJdfSwicHJpY2UiOnsidW5rbm93biI6dHJ1ZSwicmFuZ2UiOnsibWluIjozMDAwMDAsIm1heCI6NzAwMDAwfX19LCJwYWdpbmciOnsiZnJvbSI6MCwic2l6ZSI6MTd9LCJzb3J0aW5nIjpbeyJ0eXBlIjoiREFURSIsIm9yZGVyIjoiREVTQyJ9XX0%3D&p=1#gallery';
 
 test(title, async ({ page }) => {
   const newImmo = await scrape({

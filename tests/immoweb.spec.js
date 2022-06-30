@@ -2,9 +2,9 @@ import 'dotenv/config';
 import { test, expect } from '@playwright/test';
 import scrape from '../helpers/scrape.js';
 
-const { MIN_PRICE, MAX_PRICE, MIN_SURFACE } = process.env;
-const url = `https://www.immoweb.be/nl/zoeken/huis/te-koop/berchem/2600?countries=BE&minPrice=${MIN_PRICE}&maxPrice=${MAX_PRICE}&minSurface=${MIN_SURFACE}&page=1&orderBy=newest`;
-const title = 'Immoweb | 2600 Berchem';
+const { MIN_PRICE, MAX_PRICE } = process.env;
+const url = `https://www.immoweb.be/nl/zoeken/huis/te-koop?countries=BE&maxPrice=${MAX_PRICE}&minPrice=${MIN_PRICE}&minSurface=0&postalCodes=BE-2600,BE-2018,BE-2000&page=1&orderBy=newest`;
+const title = 'Immoweb';
 
 test(title, async ({ page }) => {
   const newImmo = await scrape({
