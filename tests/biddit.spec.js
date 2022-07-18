@@ -2,8 +2,9 @@ import 'dotenv/config';
 import { test, expect } from '@playwright/test';
 import scrape from '../helpers/scrape.js';
 
+const { MIN_PRICE, MAX_PRICE } = process.env;
 const title = 'Biddit';
-const url = 'https://www.biddit.be/nl/search?postalCodes=2000&postalCodes=2018&postalCodes=2600&types=HOUSE&priceMax=700000&priceMin=200000&sortVal=sortAndRanking.firstPublicationDateTime,desc&sortKey=searchcomponent.order.date&page=1&maps=false';
+const url = `https://www.biddit.be/nl/search?postalCodes=2000&postalCodes=2018&postalCodes=2600&types=HOUSE&priceMax=${MAX_PRICE}&priceMin=${MIN_PRICE}&sortVal=sortAndRanking.firstPublicationDateTime,desc&sortKey=searchcomponent.order.date&page=1&maps=false`;
 
 test(title, async ({ page }) => {
   const newImmo = await scrape({
