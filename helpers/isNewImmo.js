@@ -34,7 +34,7 @@ export default async (title, content) => {
           attachment: {
             title: immo.title,
             title_link: immo.link,
-            text: `${immo.info} ${immo.price}`,
+            text: `${immo.info} ${immo.price ?? '(waarschijnlijk reeds verkocht)'}`,
             image_url: immo.image_url,
           },
         });
