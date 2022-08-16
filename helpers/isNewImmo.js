@@ -39,7 +39,7 @@ export default async (title, content) => {
           },
         });
         resolve();
-      }, 250);
+      }, 300);
     });
   }, Promise.resolve());
 
