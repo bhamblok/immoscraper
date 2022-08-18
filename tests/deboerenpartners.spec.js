@@ -3,7 +3,7 @@ import { test, expect } from '@playwright/test';
 import scrape from '../helpers/scrape.js';
 
 const title = 'De Boer en Partners';
-const url = 'https://www.deboerenpartners.be/te-koop/huis/2000%7Cantwerpen+2018%7Cantwerpen+2600%7Cantwerpen%20berchem/250000-500000+500000-750000?term=&status=te+koop&bedrooms=&view=list&sort=null';
+const url = 'https://www.deboerenpartners.be/te-koop?term=&status=te+koop&category%5B%5D=huis&priceRange%5B%5D=250000-500000&priceRange%5B%5D=500000-750000&location%5B%5D=2000%7Cantwerpen&location%5B%5D=2018%7Cantwerpen&location%5B%5D=2600%7Cantwerpen&bedrooms=';
 
 test(title, async ({ page }) => {
   const newImmo = await scrape({
