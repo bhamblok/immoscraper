@@ -26,21 +26,7 @@ export default async (title, content) => {
   });
   await newImmo.reduce(async (prev, immo) => {
     await prev;
-    return new Promise((resolve) => {
-      setTimeout(() => {
-        console.log('notify:', immo.link);
-        notifyMe({
-          text: title,
-          attachment: {
-            title: immo.title,
-            title_link: immo.link,
-            text: `${immo.info} ${immo.price ?? '(waarschijnlijk reeds verkocht)'}`,
-            image_url: immo.image_url,
-          },
-        });
-        resolve();
-      }, 300);
-    });
+    return notifyMe({ title, immo });
   }, Promise.resolve());
 
   return newImmo;
