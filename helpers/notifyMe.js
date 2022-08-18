@@ -1,14 +1,23 @@
+/* eslint-disable no-console */
+
 import 'dotenv/config'; // eslint-disable-line import/no-extraneous-dependencies
-import { notify } from 'node-slack-notify';
+import { WebClient, LogLevel } from '@slack/web-api';
 
-const { SLACK_WEBHOOK_URL } = process.env;
+const { SLACK_TOKEN, SLACK_CHANNEL_ID } = process.env;
 
-export default msg => notify({
-  webhookUrl: SLACK_WEBHOOK_URL,
-  data: {
-    username: 'Immoscraper',
-    icon_emoji: ':house_with_garden:',
-    text: msg.text,
-    attachments: [msg.attachment],
-  },
-});
+const client = new WebClient(SLACK_TOKEN, { logLevel: LogLevel.DEBUG });
+
+export default async ({ title, immo }) => {
+  console.log('notify:', immo.link);
+  try {
+    const result = await client.chat.postMessage({
+      channel: SLACK_CHANNEL_ID,
+      text: `${title}, ${immo.title} - ${immo.info} ${immo.price ?? '(waarschijnlijk reeds verkocht)'}
+${immo.link}`,
+    });
+    console.log(result);
+  } catch (error) {
+    console.error(error);
+    console.error(error.data);
+  }
+};
