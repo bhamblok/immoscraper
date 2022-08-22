@@ -1,5 +1,11 @@
 import isNewImmo from './isNewImmo.js';
 
+const { TEST } = process.env;
+
+console.log(TEST);
+console.log(TEST);
+console.log(TEST);
+
 export default async ({ page, url, title, selectList, elementHandler }) => {
   try {
     await page.goto(url);
