@@ -23,6 +23,15 @@ jobs:
         run: npx playwright install-deps chromium
       - name: Run your tests
         run: xvfb-run npm test
+        env:
+          MIN_PRICE: ${{ MIN_PRICE }}
+          MIN_PRICE_TEXT: ${{ MIN_PRICE_TEXT }}
+          MAX_PRICE: ${{ MAX_PRICE }}
+          MAX_PRICE_TEXT: ${{ MAX_PRICE_TEXT }}
+          MIN_SURFACE: ${{ MIN_SURFACE }}
+          TEST: ${{ TEST }}
+          SLACK_TOKEN: ${{ secrets.SLACK_TOKEN }}
+          SLACK_CHANNEL_ID: ${{ secrets.SLACK_CHANNEL_ID }}
       - name: Commit files
         if: failure()
         run: |
