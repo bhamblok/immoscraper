@@ -2,7 +2,7 @@ import isNewImmo from './isNewImmo.js';
 
 export default async ({ page, url, title, selectList, elementHandler }) => {
   try {
-    await page.goto(url);
+    await page.goto(encodeURI(url));
     await new Promise(resolve => setTimeout(resolve, 1000));
     const elementHandles = await selectList(page).elementHandles();
     const content = await elementHandles.reduce(async (resolvePrevious, elementHandle) => {
