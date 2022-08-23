@@ -63,7 +63,7 @@ export default {
       name: 'Desktop Chromium | Portrait',
       userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3419.0 Safari/537.36',
       use: {
-        headless: false,
+        headless: !process.env.CI,
         userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3419.0 Safari/537.36',
         browserName: 'chromium',
         viewport: { width: 1200, height: 1800 },
