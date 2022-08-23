@@ -19,18 +19,17 @@ jobs:
       - name: Install dependencies
         run: npm ci
       - name: Install Playwright
-        # run: npx playwright install --with-deps
         run: npx playwright install-deps chromium
       - name: Run your tests
-        # env:
-        #   MIN_PRICE: ${{ MIN_PRICE }}
-        #   MIN_PRICE_TEXT: ${{ MIN_PRICE_TEXT }}
-        #   MAX_PRICE: ${{ MAX_PRICE }}
-        #   MAX_PRICE_TEXT: ${{ MAX_PRICE_TEXT }}
-        #   MIN_SURFACE: ${{ MIN_SURFACE }}
-        #   TEST: ${{ TEST }}
-        #   SLACK_TOKEN: ${{ secrets.SLACK_TOKEN }}
-        #   SLACK_CHANNEL_ID: ${{ secrets.SLACK_CHANNEL_ID }}
+        env:
+          MIN_PRICE: ${{ secrets.MIN_PRICE }}
+          MIN_PRICE_TEXT: ${{ secrets.MIN_PRICE_TEXT }}
+          MAX_PRICE: ${{ secrets.MAX_PRICE }}
+          MAX_PRICE_TEXT: ${{ secrets.MAX_PRICE_TEXT }}
+          MIN_SURFACE: ${{ secrets.MIN_SURFACE }}
+          TEST: ${{ secrets.TEST }}
+          SLACK_TOKEN: ${{ secrets.SLACK_TOKEN }}
+          SLACK_CHANNEL_ID: ${{ secrets.SLACK_CHANNEL_ID }}
         run: xvfb-run npm test
       - name: Commit files
         if: failure()
