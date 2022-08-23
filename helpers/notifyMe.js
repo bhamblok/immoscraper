@@ -19,7 +19,7 @@ ${immo.link}`,
           type: 'section',
           text: {
             type: 'mrkdwn',
-            text: `<${immo.link}|${title} - ${immo.title}>`,
+            text: `<${encodeURI(immo.link)}|${title} - ${immo.title}>`,
           },
         },
         {
@@ -36,7 +36,6 @@ ${immo.link}`,
             text: `${immo.price ?? '(waarschijnlijk reeds verkocht)'}`,
           },
         },
-        { type: 'divider' },
         {
           type: 'image',
           title: {
@@ -46,6 +45,7 @@ ${immo.link}`,
           image_url: immo.image_url,
           alt_text: immo.title,
         },
+        { type: 'divider' },
       ],
     });
     console.log(result);
