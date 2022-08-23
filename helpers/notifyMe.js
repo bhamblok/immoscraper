@@ -19,7 +19,17 @@ ${immo.link}`,
           type: 'section',
           text: {
             type: 'mrkdwn',
-            text: `<${encodeURI(immo.link)}|${title} - ${immo.title}>`,
+            text: `<${encodeURI(immo.link)}>`,
+          },
+          accessory: {
+            type: 'button',
+            text: {
+              type: 'plain_text',
+              text: title,
+            },
+            value: title,
+            url: encodeURI(immo.link),
+            action_id: 'button-action',
           },
         },
         {
