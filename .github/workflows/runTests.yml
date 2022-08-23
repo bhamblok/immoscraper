@@ -23,9 +23,7 @@ jobs:
       - name: Run your tests
         env:
           MIN_PRICE: ${{ secrets.MIN_PRICE }}
-          MIN_PRICE_TEXT: ${{ secrets.MIN_PRICE_TEXT }}
           MAX_PRICE: ${{ secrets.MAX_PRICE }}
-          MAX_PRICE_TEXT: ${{ secrets.MAX_PRICE_TEXT }}
           MIN_SURFACE: ${{ secrets.MIN_SURFACE }}
           TEST: ${{ secrets.TEST }}
           SLACK_TOKEN: ${{ secrets.SLACK_TOKEN }}
