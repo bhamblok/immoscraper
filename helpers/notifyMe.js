@@ -16,20 +16,10 @@ export default async ({ title, immo }) => {
 ${immo.link}`,
       blocks: [
         {
-          type: 'section',
+          type: 'header',
           text: {
-            type: 'mrkdwn',
-            text: `<${encodeURI(immo.link)}>`,
-          },
-          accessory: {
-            type: 'button',
-            text: {
-              type: 'plain_text',
-              text: title,
-            },
-            value: title,
-            url: encodeURI(immo.link),
-            action_id: 'button-action',
+            type: 'plain_text',
+            text: title,
           },
         },
         {
@@ -54,6 +44,23 @@ ${immo.link}`,
           },
           image_url: immo.image_url,
           alt_text: immo.title,
+        },
+        {
+          type: 'section',
+          text: {
+            type: 'mrkdwn',
+            text: `<${encodeURI(immo.link)}>`,
+          },
+          accessory: {
+            type: 'button',
+            text: {
+              type: 'plain_text',
+              text: title,
+            },
+            value: title,
+            url: encodeURI(immo.link),
+            action_id: 'button-action',
+          },
         },
         { type: 'divider' },
       ],
